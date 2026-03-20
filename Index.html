@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selamat Hari Raya 🌙</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    text-align:center;
+    background:#2e7d32; /* hijau pandan */
+    color:white;
+    overflow:hidden;
+}
+
+h1{
+    margin-top:80px;
+    font-size:40px;
+}
+
+p{
+    font-size:20px;
+}
+
+.ketupat{
+    position:absolute;
+    top:-50px;
+    font-size:28px;
+    animation:jatuh linear infinite;
+}
+
+@keyframes jatuh{
+    to{
+        transform:translateY(110vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🌙 Selamat Hari Raya 🌙</h1>
+<p>Maaf Zahir & Batin 💚</p>
+
+<script>
+// buat hujan ketupat
+for(let i=0;i<40;i++){
+    let span=document.createElement("span");
+    span.innerHTML="🟩"; // boleh tukar emoji
+    span.className="ketupat";
+    span.style.left=Math.random()*100+"%";
+    span.style.animationDuration=(3+Math.random()*5)+"s";
+    span.style.fontSize=(20+Math.random()*20)+"px";
+    document.body.appendChild(span);
+}
+</script>
+
+</body>
+</html>
