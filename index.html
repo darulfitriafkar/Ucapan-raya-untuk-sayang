@@ -12,7 +12,7 @@ body{
     text-align:center;
     background:#2e7d32; /* hijau pandan */
     color:white;
-    overflow-x:hidden;
+    overflow-x:hidden; /* scroll vertical aktif */
     padding:20px;
 }
 
@@ -32,6 +32,23 @@ h1{
 @keyframes shine {
     0% {background-position: 200% 0;}
     100% {background-position: -200% 0;}
+}
+
+button#playBtn{
+    margin-top:20px;
+    padding:10px 20px;
+    font-size:16px;
+    border:none;
+    border-radius:10px;
+    background:#ffd700;
+    color:#2e7d32;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+button#playBtn:hover{
+    transform:scale(1.05);
 }
 
 .karangan{
@@ -65,7 +82,7 @@ h1{
 
 .gambar-bawah{
     display:block;
-    max-width:300px; /* saiz gambar */
+    max-width:300px;
     width:80%;
     margin:40px auto 0 auto;
     border-radius:15px;
@@ -78,6 +95,10 @@ h1{
 
 <h1>🌙 Selamat Hari Raya 🌙</h1>
 
+<!-- Button main lagu -->
+<button id="playBtn">🎵 Main Lagu Raya</button>
+<audio id="lagu" src="lagu-raya.mp3"></audio>
+
 <p class="karangan">
 Assalamualaikum sayang... Saya Darul Fitri Afkar ingin mengucapkan Selamat Hari Raya, semoga raya tahun ini lebih bermakna dan meriah daripada tahun sebelumnya.  
 Saya ingin menyusun 10 jari memohon maaf sekiranya sepanjang pengenalan kita, saya banyak menguris hati awak, bakal isteri saya 🤍✨.  
@@ -87,10 +108,10 @@ Akhir sekali, jangan lupa hantar gambar raya awak pada pagi raya, saya ingin mem
 </p>
 
 <!-- Gambar di bawah -->
-<img src="gambar-bawah.JPG" alt="Gambar Raya" class="gambar-bawah">
+<img src="gambar-bawah.png" alt="Gambar Raya" class="gambar-bawah">
 
 <script>
-// buat hujan ketupat dengan PNG
+// Hujan ketupat PNG
 for(let i=0;i<40;i++){
     let img=document.createElement("img");
     img.src="ketupat.png"; 
@@ -101,6 +122,20 @@ for(let i=0;i<40;i++){
     img.style.animationDuration=(3+Math.random()*5)+"s"; 
     document.body.appendChild(img);
 }
+
+// Button play/pause lagu
+const button = document.getElementById('playBtn');
+const audio = document.getElementById('lagu');
+
+button.addEventListener('click', function(){
+    if(audio.paused){
+        audio.play();
+        button.textContent = '⏸ Henti Lagu';
+    } else {
+        audio.pause();
+        button.textContent = '🎵 Main Lagu Raya';
+    }
+});
 </script>
 
 </body>
