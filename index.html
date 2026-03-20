@@ -26,9 +26,13 @@ p{
 
 .ketupat{
     position:absolute;
-    top:-50px;
-    font-size:28px;
-    animation:jatuh linear infinite;
+    top:-60px; /* mula di atas skrin */
+    width:40px; /* saiz default, boleh adjust */
+    height:40px;
+    pointer-events:none;
+    animation-name:jatuh;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 @keyframes jatuh{
@@ -45,15 +49,16 @@ p{
 <p>Maaf Zahir & Batin 💚</p>
 
 <script>
-// buat hujan ketupat
+// buat hujan ketupat dengan PNG
 for(let i=0;i<40;i++){
-    let span=document.createElement("span");
-    span.innerHTML="🟩"; // boleh tukar emoji
-    span.className="ketupat";
-    span.style.left=Math.random()*100+"%";
-    span.style.animationDuration=(3+Math.random()*5)+"s";
-    span.style.fontSize=(20+Math.random()*20)+"px";
-    document.body.appendChild(span);
+    let img=document.createElement("img");
+    img.src="ketupat.png"; // pastikan PNG ada dalam folder sama
+    img.className="ketupat";
+    img.style.left=Math.random()*100+"%";
+    img.style.width=(20+Math.random()*30)+"px"; // saiz random
+    img.style.height=img.style.width;
+    img.style.animationDuration=(3+Math.random()*5)+"s"; // laju jatuh random
+    document.body.appendChild(img);
 }
 </script>
 
